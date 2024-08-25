@@ -6,15 +6,18 @@ function setup() {
     // background(bgColor);
     noFill();
     stroke('black');
+    strokeWeight(2);
     rectMode(CENTER);
     angleMode(DEGREES);
     // squaresGrid();
     frameRate(10);
+    background(bgColor);
+    squaresGrid();
+
 };
 
 function draw() {
-    background(bgColor);
-    squaresGrid();
+
 
     
 
@@ -22,7 +25,7 @@ function draw() {
 
 const squaresGrid = () => {
     const margin = 30;
-    const sWidth = 60;
+    const sWidth = 43;
     
     let sX = sWidth/2 + margin;
     // let angle = 10;
@@ -42,13 +45,14 @@ const squaresGrid = () => {
         for (let sY = sWidth/2 + margin; sY <= height; sY += sWidth) {
             
   
-            let angle = map(sY, 0, height, 0, random(45, 90));
+            let angle = map(sY, 0, height, random(0, 2), random(2, 180));
 
             // Randomly decide if the rotation should be clockwise or counterclockwise
             let direction = random([-1, 1]); 
             
             // Apply the direction to the angle
             angle *= direction;
+            
 
             
             console.log(`this is the current Y ${sY}`);
