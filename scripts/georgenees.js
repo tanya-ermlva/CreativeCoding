@@ -19,9 +19,6 @@ function setup() {
 function draw() {
     background(bgColor);
     squaresGrid();
-
-    
-
 };
 
 const squaresGrid = () => {
