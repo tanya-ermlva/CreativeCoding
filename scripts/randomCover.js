@@ -40,8 +40,6 @@ const createCircleGrid = (index1, index2, color1, color2) => {
 
     let i = 0;
 
-
-
     for (let x = 0 + diameter; x < width; x += diameter + gap) {
         for (let y = 0 + diameter; y < height; y += diameter + gap) {
             let randomIndex1 = floor(random(1, index1));
@@ -63,7 +61,6 @@ const createCircleGrid = (index1, index2, color1, color2) => {
 const createRecGrid = (index1, color1, color2) => {
     let i = 0;
     
-
     for (let x = 0 + diameter; x < width - diameter; x += diameter + gap) {
         for (let y = 0 + diameter; y < height - diameter; y += diameter + gap) {
             let randomIndex1 = floor(random(1, index1));
