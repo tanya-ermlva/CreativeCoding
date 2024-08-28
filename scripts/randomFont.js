@@ -1,5 +1,5 @@
 const bgColor = 245;
-const inputString = 'Hello, Sergey!';
+const inputString = 'Procrastinate';
 const blue = [42, 123, 166];
 const black = [18, 29, 31];
 
@@ -17,7 +17,7 @@ const grey = [207, 205, 198];
 const brown = [179, 127, 76];
 const gold = [193, 179, 90];
 
-
+let currentLetterIndex = 0;
 
 let fontArray = ['DM Sans', 'DM Serif Display', 'Jost', 'Anton'];
 // let weightArray = [100, 400, 500, 700, 800, 900];
@@ -31,15 +31,21 @@ function setup() {
     
     angleMode(DEGREES);
     frameRate(10);
-    background(bgColor);
+    
     textSize(100);
     // splitText(inputString);
     rectMode(CENTER);
 };
 
 function draw() {
-    background(bgColor);
-    splitText(inputString);
+    
+    if (currentLetterIndex < inputString.length) {
+        background(lightBeige);
+        splitText(inputString.slice(0, currentLetterIndex + 1));
+        currentLetterIndex += 1;
+    } else {
+        noLoop(); 
+    }
     
 };
 
@@ -56,7 +62,7 @@ const splitText = (textInput) => {
         let randomFontIndex = floor(random(0, fontArray.length));
         // let randomWeightIndex = floor(random(0, weightArray.length));
 
-        let angle = random(0, 2);
+        let angle = random(0, 4);
         let direction = random([-1, 1]);
 
         // fill('white');
@@ -64,8 +70,8 @@ const splitText = (textInput) => {
         // rect(textX-gap/2, textY, textWidth-gap, textWidth-gap);
 
         if (textInput[i] === ' ') {
-            fill(transparent);
-            text(textInput[i], 0, textY * 4.5);
+            // fill(transparent);
+            // text(textInput[i], 0, textY * 4.5);
             let spaceWidth = textWidth(' ');
             textX += spaceWidth;
 
@@ -94,9 +100,6 @@ const splitText = (textInput) => {
        
         text(textInput[i], 0, textY * 4.5);
         console.log(textX, textY);
-
-        
-
        
         textX += charWidth;
         
@@ -106,7 +109,5 @@ const splitText = (textInput) => {
         
         pop();
         }
-       
     }
-
 }
